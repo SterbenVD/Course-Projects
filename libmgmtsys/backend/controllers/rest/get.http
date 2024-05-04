@@ -1,0 +1,8 @@
+POST http://localhost:5172/book
+
+{
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "ISBN": "978-0618640157",
+    "publisher": "Houghton Mifflin Harcourt",
+}

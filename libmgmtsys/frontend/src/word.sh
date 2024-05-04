@@ -1,0 +1,1 @@
+find . -name '*' -not -path "./node_modules/*" | xargs wc -l

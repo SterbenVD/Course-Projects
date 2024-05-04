@@ -1,0 +1,3 @@
+int_8 a,b;
+
+result = a + b; <!--Undefined Variable result (had it been defined then there would be a global variable declared by non-constant value error) --!> 

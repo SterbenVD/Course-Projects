@@ -1,0 +1,11 @@
+temp/*
+private/*
+venv*
+
+ref*
+
+# Ignore all files in the build directory
+build/*
+
+# Javascript stuff
+*node_modules*

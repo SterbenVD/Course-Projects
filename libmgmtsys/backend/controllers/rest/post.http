@@ -1,0 +1,9 @@
+POST http://localhost:5172/book HTTP/1.1
+content-type: application/json
+
+{
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "ISBN" : "978-0-395-08355-1",
+    "publicationDate": "1937-09-21"
+}

@@ -1,0 +1,35 @@
+# Folders
+bin/
+obj/
+build/*
+!build/Makefile
+logs/*
+/Temp/
+
+# Files
+**/parser.c
+**/lexer.c
+**/tokens.h
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+prog
+
+# Others
+**/parser.output
+*.tok
+*.log
+
+# Object files
+*.o
+*.obj
+*.elf
+*.bin
+
+libfsm.a
+.vscode
