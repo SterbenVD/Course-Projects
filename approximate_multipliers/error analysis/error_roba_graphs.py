@@ -46,14 +46,14 @@ def oper(a,b,recur = 0,logs = False):
         return a*b, 0
 
     # ax and bx are the second largest bits of a and b respectively
-    # ax = second_largest_bit(a)
-    # bx = second_largest_bit(b)
+    ax = second_largest_bit(a)
+    bx = second_largest_bit(b)
 
     # ar = 2^(az-1) if second largest bit of a is 0, else 2^az
-    # ar = (1 << (az-1) if ax == 0 else 1 << az)
-    # br = (1 << (bz-1) if bx == 0 else 1 << bz)
-    ar = 1 << (az-1)
-    br = 1 << (bz-1)
+    ar = (1 << (az-1) if ax == 0 else 1 << az)
+    br = (1 << (bz-1) if bx == 0 else 1 << bz)
+    # ar = 1 << (az-1)
+    # br = 1 << (bz-1)
 
     # The answer is calculated using the RoBa algorithm
     ans = ar*b + a*br - ar*br
@@ -131,41 +131,37 @@ def stats():
         print("Max Error: ", max(errors[r]), " %")
         print("Min Error: ", min(errors[r]), " %")
     
+    fig, ax = plt.subplots(3,1)
+    # Edit size of the figure
+    fig.set_size_inches(10, 15)
+    fig.suptitle('Error Analysis')
+    
     # Plotting the mean error
-    plt.figure()
-    plt.plot([i for i in range(r_max)], [sum(errors[i])/len(errors[i]) for i in range(r_max)], marker = 'o')
-    plt.xlabel('Recurse Depth')
-    plt.ylabel('Mean Error (%)')
-    plt.title('Mean Error vs Recurse Depth')
-    plt.yscale('log')
-    plt.savefig('mean_error.png')
+    2.0
+    ax[0].plot([i for i in range(r_max)], [sum(errors[i])/len(errors[i]) for i in range(r_max)], marker = 'o')
+    ax[0].set_xlabel('Recurse Depth')
+    ax[0].set_ylabel('Mean Error (%)')
+    ax[0].set_title('Mean Error vs Recurse Depth')
+    ax[0].set_yscale('log')
+    # ax[0].savefig('mean_error.png')
 
     # Plotting the median error
-    plt.figure()
-    plt.plot([i for i in range(r_max)], [sorted(errors[i])[len(errors[i])//2] for i in range(r_max)], marker = 'o')
-    plt.xlabel('Recurse Depth')
-    plt.ylabel('Median Error (%)')
-    plt.title('Median Error vs Recurse Depth')
-    plt.yscale('log')
-    plt.savefig('median_error.png')
+    ax[1].plot([i for i in range(r_max)], [sorted(errors[i])[len(errors[i])//2] for i in range(r_max)], marker = 'o')
+    ax[1].set_xlabel('Recurse Depth')
+    ax[1].set_ylabel('Median Error (%)')
+    ax[1].set_title('Median Error vs Recurse Depth')
+    ax[1].set_yscale('log')
+    # ax[1].savefig('median_error.png')
 
     # Plotting the max error
-    plt.figure()
-    plt.plot([i for i in range(r_max)], [max(errors[i]) for i in range(r_max)], marker = 'o')
-    plt.xlabel('Recurse Depth')
-    plt.ylabel('Max Error (%)')
-    plt.title('Max Error vs Recurse Depth')
-    plt.yscale('log')
-    plt.savefig('max_error.png')
+    ax[2].plot([i for i in range(r_max)], [max(errors[i]) for i in range(r_max)], marker = 'o')
+    ax[2].set_xlabel('Recurse Depth')
+    ax[2].set_ylabel('Max Error (%)')
+    ax[2].set_title('Max Error vs Recurse Depth')
+    ax[2].set_yscale('log')
+    # ax[2].savefig('max_error.png')
 
-    # Plotting the min error: Outputs are 0, so not useful
-    # plt.figure()
-    # plt.plot([i for i in range(r_max)], [min(errors[i]) for i in range(r_max)], marker = 'o')
-    # plt.xlabel('Recurse Depth')
-    # plt.ylabel('Min Error (%)')
-    # plt.title('Min Error vs Recurse Depth')
-    # plt.yscale('log')
-    # plt.savefig('min_error.png')
+    plt.savefig('error_analysis.png')
 
 if __name__ == "__main__":
     # a = 5507884291704
