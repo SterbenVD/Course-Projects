@@ -1,6 +1,6 @@
-# Simplified AI-Driven Supply Chain Attack Detection System
+# AI5063 Course Project
 
-## Project Overview
+# Simplified AI-Driven Supply Chain Attack Detection System
 
 Develop a basic AI-powered system to detect potential supply chain attacks in software packages, inspired by incidents like the SolarWinds attack. 
 The system will analyze software package metadata and contents to identify suspicious modifications.
