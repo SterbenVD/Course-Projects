@@ -1,0 +1,5 @@
+sec_pkg*
+*.csv
+__pycache__
+secrets.toml
+*.db
